@@ -14,6 +14,7 @@ import Header from "./components/Header";
 import GetStart from "./components/GetStart";
 import NPC from "./components/NPC";
 
+
 const App = () => {
   return (
     <div className="App">
@@ -32,7 +33,7 @@ const App = () => {
       {/* Why Choose Us Section */}
       <section id="why-choose" className="why-choose-section">
         <h2>Why Choose This Website?</h2>
-        <img src="https://via.placeholder.com/800x400" alt="Why Choose Us" />
+        <img src="Images/bitcoin.jpg" alt="Why Choose Us" />
         <div className="why-choose-cards">
           <div className="why-choose-card">
             <FaRegSmileBeam className="why-choose-icon" />
