@@ -42,6 +42,7 @@ html {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+
 .navbar ul {
   list-style: none;
   display: flex;
@@ -65,6 +66,7 @@ html {
   color: #ffffff;
   background-color: rgba(26, 209, 167, 0.1);
   border-radius: 8px;
+  transform: scale(1.05);
 }
 
 .App-header {
