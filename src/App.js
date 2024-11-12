@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
+import {
+  FaBitcoin,
+  FaCoins,
+  FaDollarSign,
+  FaRegSmileBeam,
+  FaRocket,
+  FaNewspaper,
+  FaMoneyBillWave,
+  FaHandsHelping,
+  FaCalculator,
+  FaEnvelope,
+  FaGithub,
+  FaQuestionCircle,
+  FaLightbulb,
+} from "react-icons/fa";
+import { MdOutlineSecurity } from "react-icons/md";
 import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -62,15 +78,23 @@ const App = () => {
       <nav className="navbar">
         <ul>
           <li onClick={() => scrollToSection("getting-started")}>
-            Getting Started
+            <FaRocket /> Getting Started
           </li>
-          <li onClick={() => scrollToSection("news")}>News</li>
+          <li onClick={() => scrollToSection("news")}>
+            <FaNewspaper /> News
+          </li>
           <li onClick={() => scrollToSection("crypto-prices")}>
-            Crypto Prices
+            <FaMoneyBillWave /> Crypto Prices
           </li>
-          <li onClick={() => scrollToSection("why-choose")}>Why Choose Us</li>
-          <li onClick={() => scrollToSection("calculator")}>Calculator</li>
-          <li onClick={() => scrollToSection("contact")}>Contact</li>
+          <li onClick={() => scrollToSection("why-choose")}>
+            <FaHandsHelping /> Why Choose Us
+          </li>
+          <li onClick={() => scrollToSection("calculator")}>
+            <FaCalculator /> Calculator
+          </li>
+          <li onClick={() => scrollToSection("contact")}>
+            <FaEnvelope /> Contact
+          </li>
         </ul>
       </nav>
 
@@ -83,15 +107,25 @@ const App = () => {
       {/* Getting Started Section */}
       <section id="getting-started" className="getting-started-section">
         <h2>Getting Started</h2>
-        <p>
-          New to cryptocurrency? Start here to learn the basics of
-          cryptocurrency, including what it is, how to trade, and tips for
-          beginners. Get a solid understanding before diving into the market.
-        </p>
-        <p>
-          We offer tutorials, guides, and advice to help you get started safely
-          and confidently in the fast-paced world of cryptocurrency trading.
-        </p>
+        <div className="getting-started-cards">
+          <div className="getting-started-card">
+            <FaQuestionCircle className="getting-started-icon" />
+            <h3>Crypto Basics</h3>
+            <p>
+              Learn the essentials of cryptocurrency, including what it is and
+              how it works. This is the foundation you need before diving in!
+            </p>
+          </div>
+          <div className="getting-started-card">
+            <FaLightbulb className="getting-started-icon" />
+            <h3>Guides & Tips</h3>
+            <p>
+              Explore our tutorials and guides to help you start trading with
+              confidence. From wallet setup to advanced trading strategies,
+              we’ve got you covered.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Crypto News Section */}
@@ -137,16 +171,41 @@ const App = () => {
       {/* Why Choose Us Section */}
       <section id="why-choose" className="why-choose-section">
         <h2>Why Choose This Website?</h2>
-        <p>
-          Our website provides the latest updates, tools, and resources you need
-          to stay informed in the crypto market. We ensure accuracy and
-          timeliness, so you can make smarter decisions.
-        </p>
-        <p>
-          With a dedicated team of experts, in-depth analyses, and a
-          user-friendly interface, our platform is designed to support both
-          beginners and advanced traders.
-        </p>
+        <img src="https://via.placeholder.com/800x400" alt="Why Choose Us" />
+        <div className="why-choose-cards">
+          <div className="why-choose-card">
+            <FaRegSmileBeam className="why-choose-icon" />
+            <h3>Friendly Interface</h3>
+            <p>
+              Our platform is designed with user-friendliness in mind, making it
+              easy for beginners and experts alike.
+            </p>
+          </div>
+          <div className="why-choose-card">
+            <FaBitcoin className="why-choose-icon" />
+            <h3>Real-Time Prices</h3>
+            <p>
+              Access live cryptocurrency prices to stay updated with the market,
+              helping you make timely decisions.
+            </p>
+          </div>
+          <div className="why-choose-card">
+            <MdOutlineSecurity className="why-choose-icon" />
+            <h3>Secure Transactions</h3>
+            <p>
+              Our secure platform ensures your transactions and data are safe
+              and protected from any unauthorized access.
+            </p>
+          </div>
+          <div className="why-choose-card">
+            <FaDollarSign className="why-choose-icon" />
+            <h3>Competitive Rates</h3>
+            <p>
+              We offer competitive rates to ensure that you get the most value
+              from your trades on our platform.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Calculator Section */}
@@ -191,6 +250,14 @@ const App = () => {
         <h2>Contact Us</h2>
         <p>Email: support@cryptospider.com</p>
         <p>Phone: +1 800 123 4567</p>
+        <a
+          href="https://github.com/your-profile"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contact-icon"
+        >
+          <FaGithub /> GitHub
+        </a>
       </section>
     </div>
   );

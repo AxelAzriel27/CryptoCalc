@@ -4,30 +4,42 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "DM Sans", sans-serif;
-  scrollbar-width: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
+body,
+html {
+  background-color: #0b0d0e;
+  color: #ffffff;
+  max-width: 100vw;
+  overflow: hidden;
+  font-smooth: always;
+  overflow-x: hidden;
 }
 
 .App {
-  background-color: #121212;
-  color: #ffffff;
+  height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  background-color: #0b0d0e;
+  scrollbar-width: none;
 }
 
+/* Hide scrollbar in WebKit browsers */
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #1b1b1b;
-  padding: 10px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #141617;
+  padding: 15px 0;
   display: flex;
   justify-content: center;
   z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .navbar ul {
@@ -37,41 +49,34 @@
 }
 
 .navbar li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  color: #e50914;
-  font-size: 1.2rem;
-  padding: 5px 10px;
+  color: #1ad1a7;
+  font-size: 1rem;
+  padding: 8px 15px;
   transition:
     color 0.3s,
     background-color 0.3s;
 }
 
 .navbar li:hover {
-  color: #ff5e5e;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
+  color: #ffffff;
+  background-color: rgba(26, 209, 167, 0.1);
+  border-radius: 8px;
 }
 
 .App-header {
   text-align: center;
   padding: 100px 20px 40px;
-  background-color: #1b1b1b;
-}
-
-h1 {
-  font-size: 2.8rem;
-  color: #e50914;
-  margin-bottom: 10px;
-}
-
-h2 {
-  color: #e50914;
-  margin-bottom: 20px;
+  color: #1ad1a7;
+  font-size: 2.5rem;
 }
 
 /* Section Styling */
 section {
-  padding: 50px 20px;
+  padding: 60px 20px;
   margin-top: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -80,24 +85,91 @@ section {
 .getting-started-section,
 .why-choose-section,
 .contact-section {
-  background-color: #1b1b1b;
+  background-color: #141617;
   border-radius: 10px;
   padding: 40px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.getting-started-section h2,
+.why-choose-section h2 {
+  color: #1ad1a7;
 }
 
 .getting-started-section p,
 .why-choose-section p {
-  color: #b0b0b0;
+  color: #d1d1d1;
   line-height: 1.6;
   margin-top: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+.getting-started-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.getting-started-card {
+  background-color: #1b1b1b;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  max-width: 500px;
+  color: #d1d1d1;
+}
+
+.getting-started-card:hover {
+  transform: scale(1.03);
+}
+
+.getting-started-icon {
+  font-size: 40px;
+  color: #1ad1a7;
+  margin-bottom: 10px;
+}
+
+/* Why Choose Us Cards - Column Layout */
+.why-choose-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.why-choose-card {
+  background-color: #121212;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  max-width: 800px;
+}
+
+.why-choose-card:hover {
+  transform: scale(1.01);
+}
+
+.why-choose-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #1dbf73;
 }
 
 /* News Section */
 .news-section {
-  padding: 20px;
-  background-color: #222222;
+  background-color: #0b0d0e;
+  padding: 40px 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #1ad1a7 #0b0d0e;
 }
 
 .news-slider {
@@ -107,106 +179,110 @@ section {
   padding: 10px 0;
 }
 
-.news-section .news-card {
-  background-color: #1b1b1b;
-  border-radius: 10px;
+.news-card {
+  background-color: #141617;
+  border-radius: 8px;
   overflow: hidden;
+  width: 260px;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition:
     transform 0.3s,
     box-shadow 0.3s;
-  width: 280px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   text-align: left;
-  color: #ffffff;
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(229, 9, 20, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(26, 209, 167, 0.3);
 }
 
 .news-image {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  border-bottom: 2px solid #e50914;
+  border-bottom: 2px solid #1ad1a7;
 }
 
 .news-card h3 {
   font-size: 1.2rem;
-  margin: 15px 10px;
-  color: #e50914;
+  margin: 15px;
+  color: #1ad1a7;
 }
 
+/* Remove Underline from News Text */
 .news-card p {
   font-size: 1rem;
-  margin: 0 10px 15px;
-  color: #b0b0b0;
+  margin: 10px 15px;
+  color: #d1d1d1;
   line-height: 1.4;
+  text-decoration: none;
 }
 
 /* Crypto Prices Section */
 .crypto-section {
-  padding: 20px;
-  background-color: #222222;
+  padding: 40px 0;
+  background-color: #0b0d0e;
 }
 
 .crypto-slider {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .crypto-card {
-  background-color: #1b1b1b;
-  padding: 15px;
+  background-color: #141617;
+  padding: 20px;
   border-radius: 8px;
   text-align: center;
   color: #ffffff;
   margin: 0 10px;
-  width: 180px;
+  width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
 }
 
 .crypto-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .crypto-card h3 {
-  color: #e50914;
+  color: #1ad1a7;
   font-size: 1.1rem;
 }
 
 .crypto-card p {
-  color: #b0b0b0;
+  color: #d1d1d1;
+  font-size: 0.9rem;
 }
 
-/* Calculator Section */
+/* Enhanced Calculator Section */
 .calculator-section {
-  background-color: #1b1b1b;
+  background-color: #141617;
   border-radius: 10px;
   padding: 40px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 .calculator-section input,
 .calculator-section select {
-  width: 200px;
+  width: 180px;
   padding: 10px;
   margin: 5px;
   border-radius: 4px;
   border: 1px solid #333;
-  background-color: #222222;
+  background-color: #1b1b1b;
   color: #ffffff;
-  transition: border 0.3s;
 }
 
 .calculator-section input:focus,
 .calculator-section select:focus {
-  border-color: #e50914;
+  border-color: #1ad1a7;
 }
 
 .calculator-section button {
-  background-color: #e50914;
+  background-color: #1ad1a7;
   color: white;
   border: none;
   border-radius: 4px;
@@ -218,12 +294,8 @@ section {
 }
 
 .calculator-section button:hover {
-  background-color: #ff5e5e;
-  transform: translateY(-2px);
-}
-
-.calculator-section p {
-  color: #b0b0b0;
+  background-color: #13b28c;
+  transform: scale(1.05);
 }
 
 /* Contact Section */
@@ -232,12 +304,27 @@ section {
 }
 
 .contact-section p {
-  color: #b0b0b0;
+  color: #d1d1d1;
   margin-top: 5px;
-  font-size: 1.1rem;
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+/* GitHub Icon in Contact Section */
+.contact-icon {
+  display: flex;
+  align-items: center;
+  color: #1ad1a7;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-icon:hover {
+  color: #13b28c;
+}
+
+/* Animation for News Images */
+.news-image:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
