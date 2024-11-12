@@ -6,12 +6,12 @@ import {
   FaCoins,
   FaDollarSign,
   FaRegSmileBeam,
-  FaRocket,
-  FaNewspaper,
-  FaMoneyBillWave,
-  FaHandsHelping,
-  FaCalculator,
-  FaEnvelope,
+  // FaRocket,
+  // FaNewspaper,
+  // FaMoneyBillWave,
+  // FaHandsHelping,
+  // FaCalculator,
+  // FaEnvelope,
   FaGithub,
   FaQuestionCircle,
   FaLightbulb,
@@ -20,6 +20,8 @@ import { MdOutlineSecurity } from "react-icons/md";
 import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 
 const App = () => {
   const [cryptoData, setCryptoData] = useState([]);
@@ -68,41 +70,17 @@ const App = () => {
     autoplaySpeed: 3000,
   };
 
-  const scrollToSection = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToSection = (id) => {
+  //   document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  // };
 
   return (
     <div className="App">
       {/* Navbar */}
-      <nav className="navbar">
-        <ul>
-          <li onClick={() => scrollToSection("getting-started")}>
-            <FaRocket /> Getting Started
-          </li>
-          <li onClick={() => scrollToSection("news")}>
-            <FaNewspaper /> News
-          </li>
-          <li onClick={() => scrollToSection("crypto-prices")}>
-            <FaMoneyBillWave /> Crypto Prices
-          </li>
-          <li onClick={() => scrollToSection("why-choose")}>
-            <FaHandsHelping /> Why Choose Us
-          </li>
-          <li onClick={() => scrollToSection("calculator")}>
-            <FaCalculator /> Calculator
-          </li>
-          <li onClick={() => scrollToSection("contact")}>
-            <FaEnvelope /> Contact
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
 
       {/* Header Section */}
-      <header className="App-header">
-        <h1>CryptoCalc</h1>
-        <p>Your source for the latest in cryptocurrency</p>
-      </header>
+      <Header />
 
       {/* Getting Started Section */}
       <section id="getting-started" className="getting-started-section">
