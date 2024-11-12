@@ -317,6 +317,8 @@ section {
   font-size: 1.2rem;
   text-decoration: none;
   transition: color 0.3s;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .contact-icon:hover {
