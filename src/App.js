@@ -19,20 +19,15 @@ const App = () => {
     <div className="App">
       {/* Navbar */}
       <Navbar />
-
       {/* Header Section */}
       <Header />
-
       {/* Getting Started Section */}
       <GetStart />
-
       {/* Crypto News, Prices, and Calculator Section */}
       <NPC />
-
       {/* Why Choose Us Section */}
       <section id="why-choose" className="why-choose-section">
         <h2>Why Choose This Website?</h2>
-        <img src="Images/bitcoin.jpg" alt="Why Choose Us" />
         <div className="why-choose-cards">
           <div className="why-choose-card">
             <FaRegSmileBeam className="why-choose-icon" />
@@ -72,10 +67,8 @@ const App = () => {
       {/* Contact Section */}
       <section id="contact" className="contact-section">
         <h2>Contact Us</h2>
-        <p>Email: support@cryptospider.com</p>
-        <p>Phone: +1 800 123 4567</p>
         <a
-          href="https://github.com/your-profile"
+          href="https://github.com/AxelAzriel27/CryptoCalc"
           target="_blank"
           rel="noopener noreferrer"
           className="contact-icon"

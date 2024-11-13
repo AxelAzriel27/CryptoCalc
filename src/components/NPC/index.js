@@ -43,7 +43,7 @@ const NPC = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -60,6 +60,7 @@ const NPC = () => {
               target="_blank"
               rel="noopener noreferrer"
               key={index}
+              style={{ textDecoration: "none" }}
             >
               <div className="news-card">
                 {article.urlToImage && (

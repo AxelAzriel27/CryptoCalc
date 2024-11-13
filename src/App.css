@@ -42,7 +42,6 @@ html {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-
 .navbar ul {
   list-style: none;
   display: flex;
@@ -59,14 +58,14 @@ html {
   padding: 8px 15px;
   transition:
     color 0.3s,
-    background-color 0.3s;
+    background-color 0.3s,
+    transform 0.3s;
 }
 
 .navbar li:hover {
   color: #ffffff;
   background-color: rgba(26, 209, 167, 0.1);
-  border-radius: 8px;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .App-header {
@@ -88,11 +87,10 @@ section {
 .why-choose-section,
 .contact-section {
   background-color: #141617;
-  border-radius: 10px;
   padding: 40px 20px;
 }
 
-.why-choose-section img{
+.why-choose-section img {
   display: flex;
   width: 600px;
   justify-content: center;
@@ -102,6 +100,9 @@ section {
 .getting-started-section h2,
 .why-choose-section h2 {
   color: #1ad1a7;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
 }
 
 .getting-started-section p,
@@ -113,8 +114,8 @@ section {
 }
 
 .why-choose-section img {
-  width: 900;
-  height: 300;
+  width: 100%;
+  height: auto;
 }
 
 .getting-started-cards {
@@ -128,7 +129,7 @@ section {
 .getting-started-card {
   background-color: #1b1b1b;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
@@ -156,9 +157,9 @@ section {
 
 .why-choose-card {
   background-color: #121212;
-  border-radius: 10px;
   padding: 20px;
   margin: 15px;
+  border-radius: 10px;
   text-align: center;
   color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -194,7 +195,7 @@ section {
 
 .news-card {
   background-color: #141617;
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
   width: 260px;
   color: #ffffff;
@@ -215,6 +216,7 @@ section {
   height: 160px;
   object-fit: cover;
   border-bottom: 2px solid #1ad1a7;
+  text-decoration: none;
 }
 
 .news-card h3 {
@@ -245,13 +247,10 @@ section {
 
 .crypto-card {
   background-color: #141617;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 10px;
   text-align: center;
   color: #ffffff;
-  margin: 0 10px;
   width: 150px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
 }
 
@@ -272,7 +271,6 @@ section {
 /* Enhanced Calculator Section */
 .calculator-section {
   background-color: #141617;
-  border-radius: 10px;
   padding: 40px 20px;
   text-align: center;
 }
@@ -335,6 +333,10 @@ section {
 
 .contact-icon:hover {
   color: #13b28c;
+  transform: scale(1.05);
+  transition:
+    background-color 0.3s,
+    transform 0.3s ease;
 }
 
 /* Animation for News Images */
