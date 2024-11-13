@@ -104,6 +104,11 @@ section {
   font-size: 1rem;
 }
 
+.why-choose-section img {
+  width: 900;
+  height: 300;
+}
+
 .getting-started-cards {
   display: flex;
   flex-direction: row;
