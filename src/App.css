@@ -73,6 +73,33 @@ html {
   padding: 100px 20px 40px;
   color: #1ad1a7;
   font-size: 2.5rem;
+  position: relative;
+}
+
+.icon-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.1;
+}
+
+.coin-icon {
+  margin-top: 60px;
+  font-size: 10rem;
+  color: #1ad1a7;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.App-header h1 {
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Styling */
@@ -324,7 +351,7 @@ section {
   align-items: center;
   color: #1ad1a7;
   margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-decoration: none;
   transition: color 0.3s;
   justify-content: center;

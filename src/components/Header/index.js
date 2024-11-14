@@ -1,6 +1,6 @@
 import { ref, onValue, getDatabase } from "firebase/database";
 import { useState, useEffect } from "react";
-import { db } from "../../config/firebase";
+import { FaBitcoin } from "react-icons/fa";
 
 const Header = () => {
   const [headerData, setHeaderData] = useState(null);
@@ -19,6 +19,9 @@ const Header = () => {
 
   return (
     <header className="App-header">
+      <div className="icon-background">
+        <FaBitcoin className="coin-icon" />
+      </div>
       <h1>{headerData.title}</h1>
       <p>{headerData.description}</p>
     </header>
