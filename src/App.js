@@ -12,13 +12,9 @@ import ContactUs from "./components/ContactUs";
 const App = () => {
   return (
     <div className="App">
-      {/* Navbar */}
       <Navbar />
-      {/* Header Section */}
       <Header />
-      {/* Getting Started Section */}
       <GetStart />
-      {/* Crypto News, Prices, and Calculator Section */}
       <NPC />
       {/* Why Choose Us Section */}
       <Why />
