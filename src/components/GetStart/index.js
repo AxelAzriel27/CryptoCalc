@@ -1,5 +1,53 @@
 import { FaQuestionCircle, FaLightbulb } from "react-icons/fa";
+import { collection, onSnapshot } from "firebase/firestore";
+import { useState, useEffect } from "react";
+import { db } from "../../config/firebase";
+
 const GetStart = () => {
+  const [header, setHeader] = useState([]);
+  const [boxTitle, setBoxTitle] = useState([]);
+  const [boxDesc, setBoxDesc] = useState([]);
+
+  useEffect(() => {
+    const header = collection(db, "header");
+    const title = collection(db, "title");
+    const description = collection(db, "description");
+
+    // Real-time listener for 'about' collection
+    const unsubscribeHeader = onSnapshot(header, (snapshot) => {
+      const list = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setHeader(list);
+    });
+
+    // Real-time listener for 'experience' collection
+    const unsubscribeTitle = onSnapshot(title, (snapshot) => {
+      const titleList = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setBoxTitle(titleList);
+    });
+
+    // Real-time listener for 'academicHistory' collection
+    const unsubscribeDescription = onSnapshot(description, (snapshot) => {
+      const descList = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setBoxDesc(descList);
+    });
+
+    // Clean up listeners on unmount
+    return () => {
+      unsubscribeHeader();
+      unsubscribeTitle();
+      unsubscribeDescription();
+    };
+  }, []);
+
   return (
     <section id="getting-started" className="getting-started-section">
       <h2>Getting Started</h2>
