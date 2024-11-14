@@ -17,15 +17,10 @@ import NPC from "./components/NPC";
 const App = () => {
   return (
     <div className="App">
-      {/* Navbar */}
       <Navbar />
-      {/* Header Section */}
       <Header />
-      {/* Getting Started Section */}
       <GetStart />
-      {/* Crypto News, Prices, and Calculator Section */}
       <NPC />
-      {/* Why Choose Us Section */}
       <section id="why-choose" className="why-choose-section">
         <h2>Why Choose This Website?</h2>
         <div className="why-choose-cards">
@@ -63,10 +58,8 @@ const App = () => {
           </div>
         </div>
       </section>
-
-      {/* Contact Section */}
       <section id="contact" className="contact-section">
-        <h2>Contact Us</h2>
+        <h2>About Us</h2>
         <a
           href="https://github.com/AxelAzriel27/CryptoCalc"
           target="_blank"
