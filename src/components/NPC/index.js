@@ -1,6 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, CSSProperties } from "react";
 import axios from "axios";
 import Slider from "react-slick";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#1ad1a7",
+};
 
 const NPC = () => {
   const [news, setNews] = useState([]);
@@ -9,34 +16,45 @@ const NPC = () => {
   const [convertedCrypto, setConvertedCrypto] = useState(0);
   const [selectedCurrency, setSelectedCurrency] = useState("usd");
   const [selectedCrypto, setSelectedCrypto] = useState("bitcoin");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCryptoData = async () => {
-      const cryptoResponse = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/markets",
-        {
-          params: {
-            vs_currency: selectedCurrency,
-            order: "market_cap_desc",
-            per_page: 10,
-          },
-        }
-      );
-      setCryptoData(cryptoResponse.data);
+      setLoading(true);
+      try {
+        const cryptoResponse = await axios.get(
+          "https://api.coingecko.com/api/v3/coins/markets",
+          {
+            params: {
+              vs_currency: selectedCurrency,
+              order: "market_cap_desc",
+              per_page: 10,
+            },
+          }
+        );
+        setCryptoData(cryptoResponse.data);
 
-      const newsResponse = await axios.get(
-        "https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=637608bc5b0a49268cdba327b7d7fb55"
-      );
-      setNews(newsResponse.data.articles.slice(0, 5));
+        const newsResponse = await axios.get(
+          "https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=637608bc5b0a49268cdba327b7d7fb55"
+        );
+        setNews(newsResponse.data.articles.slice(0, 5));
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
     };
+
     fetchCryptoData();
   }, [selectedCurrency]);
 
   const handleCalculate = () => {
+    setLoading(true);
     const selectedCoin = cryptoData.find((coin) => coin.id === selectedCrypto);
     if (selectedCoin) {
       setConvertedCrypto(amount / selectedCoin.current_price);
     }
+    setLoading(false);
   };
 
   const cryptoSettings = {
@@ -53,29 +71,32 @@ const NPC = () => {
     <>
       <section id="news" className="news-section">
         <h2>Crypto News</h2>
-        <div className="news-slider">
-          {news.map((article, index) => (
-            <a
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-              style={{ textDecoration: "none" }}
-            >
-              <div className="news-card">
-                {article.urlToImage && (
-                  <img
-                    src={article.urlToImage}
-                    alt="News headline"
-                    className="news-image"
-                  />
-                )}
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-              </div>
-            </a>
-          ))}
-        </div>
+        {!loading && (
+          <div className="news-slider">
+            {news.map((article, index) => (
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+                style={{ textDecoration: "none" }}
+              >
+                <div className="news-card">
+                  {article.urlToImage && (
+                    <img
+                      src={article.urlToImage}
+                      alt="News headline"
+                      className="news-image"
+                    />
+                  )}
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+        {loading && <ClipLoader cssOverride={override} size={50} />}
       </section>
 
       <section id="crypto-prices" className="crypto-section">
