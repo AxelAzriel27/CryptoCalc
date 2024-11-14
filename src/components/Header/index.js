@@ -1,7 +1,6 @@
 import { ref, onValue, getDatabase } from "firebase/database";
 import { useState, useEffect } from "react";
 import { FaBitcoin } from "react-icons/fa";
-import { db } from "../../config/firebase";
 
 const Header = () => {
   const [headerData, setHeaderData] = useState(null);
