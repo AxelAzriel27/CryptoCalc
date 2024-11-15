@@ -251,7 +251,7 @@ section {
 }
 
 .crypto-card:hover {
-  transform: translateY(-4px);
+  transform: scale(1.1);
 }
 
 .crypto-card h3 {
