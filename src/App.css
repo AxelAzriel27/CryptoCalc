@@ -20,8 +20,12 @@ html {
   height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  background-color: #0b0d0e;
   scrollbar-width: none;
+  background-image: url('/public/Images/background.png'); /* Path ke gambar */
+  background-size: cover; /* Agar gambar menutupi seluruh elemen */
+  background-position: center; /* Gambar berada di tengah */
+  background-repeat: no-repeat; /* Hindari pengulangan gambar */
+  min-height: 100vh; /* Pastikan elemen memiliki tinggi minimum 100% layar */
 }
 
 /* Hide scrollbar in WebKit browsers */
@@ -110,7 +114,7 @@ section {
 .getting-started-section,
 .why-choose-section,
 .contact-section {
-  background-color: #141617;
+  background-color: #141617f6;  /* background color with opacity */
   padding: 40px 20px;
 }
 
@@ -203,7 +207,7 @@ section {
 
 /* News Section */
 .news-section {
-  background-color: #0b0d0e;
+  background-color: #141617f6; /* background color with opacity */
   padding: 40px 0;
   overflow-x: auto;
   scrollbar-width: thin;
@@ -259,7 +263,7 @@ section {
 /* Crypto Prices Section */
 .crypto-section {
   padding: 40px 0;
-  background-color: #0b0d0e;
+  background-color: #141617f6; /* background color with opacity */
 }
 
 .crypto-slider {
@@ -268,7 +272,7 @@ section {
 }
 
 .crypto-card {
-  background-color: #141617;
+  background-color: #141617; 
   padding: 10px;
   text-align: center;
   color: #ffffff;
@@ -292,7 +296,7 @@ section {
 
 /* Enhanced Calculator Section */
 .calculator-section {
-  background-color: #141617;
+  background-color: #141617f6; /* background color with opacity */
   padding: 40px 20px;
   text-align: center;
 }
