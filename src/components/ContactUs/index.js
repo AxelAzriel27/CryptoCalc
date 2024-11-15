@@ -2,9 +2,9 @@ import { FaGithub } from "react-icons/fa";
 import { Bounce } from "react-awesome-reveal";
 const ContactUs = () => {
   return (
-    <Bounce>
-      <section id="contact" className="contact-section">
-        <h2>Contact Us</h2>
+    <section id="contact" className="contact-section">
+      <h2>Contact Us</h2>
+      <Bounce>
         <a
           href="https://github.com/AxelAzriel27/CryptoCalc"
           target="_blank"
@@ -13,8 +13,8 @@ const ContactUs = () => {
         >
           <FaGithub /> GitHub
         </a>
-      </section>
-    </Bounce>
+      </Bounce>
+    </section>
   );
 };
 export default ContactUs;
