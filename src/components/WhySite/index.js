@@ -1,6 +1,7 @@
 import { useState, useEffect, CSSProperties } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 import ClipLoader from "react-spinners/ClipLoader";
+import { Zoom } from "react-awesome-reveal";
 
 const override: CSSProperties = {
   display: "block",
@@ -41,25 +42,27 @@ const Why = () => {
   const { title, cards } = whyData;
 
   return (
-    <section id="why-choose" className="why-choose-section">
-      <h2>{title}</h2>
-      <div className="why-choose-cards">
-        {Object.keys(cards).map((key) => {
-          const card = cards[key];
-          const Icon =
-            require("react-icons/fa")[card.icon] ||
-            require("react-icons/md")[card.icon];
+    <Zoom triggerOnce>
+      <section id="why-choose" className="why-choose-section">
+        <h2>{title}</h2>
+        <div className="why-choose-cards">
+          {Object.keys(cards).map((key) => {
+            const card = cards[key];
+            const Icon =
+              require("react-icons/fa")[card.icon] ||
+              require("react-icons/md")[card.icon];
 
-          return (
-            <div key={key} className="why-choose-card">
-              <Icon className="why-choose-icon" />
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+            return (
+              <div key={key} className="why-choose-card">
+                <Icon className="why-choose-icon" />
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </Zoom>
   );
 };
 
