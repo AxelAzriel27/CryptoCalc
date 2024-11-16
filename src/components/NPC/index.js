@@ -38,7 +38,7 @@ const NPC = () => {
         const newsResponse = await axios.get(
           "https://newsapi.org/v2/everything?q=cryptocurrency&apiKey=637608bc5b0a49268cdba327b7d7fb55"
         );
-        setNews(newsResponse.data.articles.slice(0, 5));
+        setNews(newsResponse.data.articles.slice(0, 15));
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -76,6 +76,7 @@ const NPC = () => {
       <section id="news" className="news-section">
         <h2>Crypto News</h2>
         {!loading && (
+           <div className="news-slider-container">
           <div className="news-slider">
             {news.map((article, index) => (
               <a
@@ -98,6 +99,7 @@ const NPC = () => {
                 </div>
               </a>
             ))}
+          </div>
           </div>
         )}
         {loading && <ClipLoader cssOverride={override} size={50} />}
@@ -129,6 +131,7 @@ const NPC = () => {
           <option value="php">PHP</option>
           <option value="vnd">VND</option>
           <option value="thb">THB</option>
+          {/* Add other currencies as needed */}
         </select>
         <div className="converter-form">
   <input
