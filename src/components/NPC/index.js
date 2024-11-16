@@ -10,6 +10,7 @@ const override: CSSProperties = {
 };
 
 const NPC = () => {
+  const [fiatAmount, setFiatAmount] = useState(0);
   const [news, setNews] = useState([]);
   const [cryptoData, setCryptoData] = useState([]);
   const [amount, setAmount] = useState(0);
@@ -48,14 +49,17 @@ const NPC = () => {
     fetchCryptoData();
   }, [selectedCurrency]);
 
-  const handleCalculate = () => {
-    setLoading(true);
+  useEffect(() => {
+    if (!amount || !selectedCrypto) return;
+    
     const selectedCoin = cryptoData.find((coin) => coin.id === selectedCrypto);
     if (selectedCoin) {
+      // Calculate crypto to fiat
+      setFiatAmount(amount * selectedCoin.current_price);
+      // Calculate fiat to crypto
       setConvertedCrypto(amount / selectedCoin.current_price);
     }
-    setLoading(false);
-  };
+  }, [amount, selectedCrypto, cryptoData]);
 
   const cryptoSettings = {
     dots: false,
@@ -125,26 +129,29 @@ const NPC = () => {
           <option value="php">PHP</option>
           <option value="vnd">VND</option>
           <option value="thb">THB</option>
-          {/* Add other currencies as needed */}
         </select>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          placeholder="Amount in selected currency"
-        />
-        <select
-          value={selectedCrypto}
-          onChange={(e) => setSelectedCrypto(e.target.value)}
-        >
-          {cryptoData.map((coin) => (
-            <option value={coin.id} key={coin.id}>
-              {coin.name}
-            </option>
-          ))}
-        </select>
-        <button onClick={handleCalculate}>Calculate</button>
-        <p>Crypto amount: {convertedCrypto.toFixed(5)}</p>
+        <div className="converter-form">
+  <input
+    type="number"
+    value={amount}
+    onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+    placeholder="Enter amount"
+  />
+  <select 
+    value={selectedCrypto}
+    onChange={(e) => setSelectedCrypto(e.target.value)}
+  >
+    {cryptoData.map((crypto) => (
+      <option key={crypto.id} value={crypto.id}>
+        {crypto.name}
+      </option>
+    ))}
+  </select>
+  <div className="conversion-results">
+    <p>{amount} {selectedCrypto} = {fiatAmount.toFixed(2)} {selectedCurrency}</p>
+    <p>{amount} {selectedCurrency} = {convertedCrypto.toFixed(8)} {selectedCrypto}</p>
+  </div>
+</div>
       </section>
     </>
   );

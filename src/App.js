@@ -16,9 +16,7 @@ const App = () => {
       <Header />
       <GetStart />
       <NPC />
-      {/* Why Choose Us Section */}
       <Why />
-      {/* Contact Section */}
       <ContactUs />
     </div>
   );
